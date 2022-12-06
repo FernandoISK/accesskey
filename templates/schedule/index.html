@@ -17,7 +17,7 @@
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href='{% url "Home" %}'>Home</a></li>
+                        <li class="breadcrumb-item"><a href="/Templates/home/index.html">Home</a></li>
                         <li class="breadcrumb-item">See Users</li>
 
                     </ol>
@@ -28,7 +28,7 @@
     <sectio class="content">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">General content of the laboratories</h3>
+                <h3 class="card-title">DataTable with default features</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -36,18 +36,33 @@
                     <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Last Name</th>
-                            <th>Username</th>
+                            <th>Position</th>
+                            <th>Email</th>
                             <th>Options</th>
                         </tr>
                     </thead>
-                    <tbody id="tbodyData">                        
+                    <tbody>
+                        <tr>
+                            <td>Cancino Chim Jose Fernando</td>
+                            <td>Super</td>
+                            <td>josefernandoco8@gmail.com</td>
+                            <td><div class="input-group-prepend">
+                                <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                                  Action
+                                </button>
+                                <ul class="dropdown-menu">
+                                  <li class="dropdown-item"><a href="#">Edit</a></li>
+                                  <li class="dropdown-item"><a href="#">Delet </a></li>
+                                </ul>
+                              </div></td>
+                        </tr>
+                        
                     </tbody>
                     <tfoot>
                         <tr>
                             <th>Name</th>
-                            <th>Last Name</th>
-                            <th>Username</th>
+                            <th>Position</th>
+                            <th>Email</th>
                             <th>Options</th>
                         </tr>
                     </tfoot>
@@ -74,8 +89,6 @@
 <script src='{% static "plugins/datatables-buttons/js/buttons.html5.min.js" %}'></script>
 <script src='{% static "plugins/datatables-buttons/js/buttons.print.min.js" %}'></script>
 <script src='{% static "plugins/datatables-buttons/js/buttons.colVis.min.js" %}'></script>
-<script src='{% static "js/user/users.js" %}'></script>
-
 
 <script>
     $(function () {
@@ -91,7 +104,6 @@
             "autoWidth": false,
             "responsive": true,
         });
-        loadIndex();
     });
 </script>
-{% endblock %}
+{% endblock%}

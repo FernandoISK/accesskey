@@ -1,5 +1,6 @@
 {% extends "masterPage.html" %}
-{% block titl%} AccessKey | user {%endblock%}
+{% load static %}
+{% block title %} AccessKey | user {% endblock %}
 {% block content%}
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -11,8 +12,8 @@
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="/Templates/home/index.html">Home</a></li>
-                        <li class="breadcrumb-item"><a href="/Templates/home/index.html">See Users</a></li>
+                        <li class="breadcrumb-item"><a href='{% url "Home" %}'>Home</a></li>
+                        <li class="breadcrumb-item"><a href='{% url "User-Index" %}'>See Users</a></li>
                         <li class="breadcrumb-item">New user</li>
 
                     </ol>
@@ -37,7 +38,7 @@
                                         <div class="form-group ">
                                             <label for="inputFirstName" class="col-form-label">First name</label>
                                             <input type="text" name="inputFirstName" id="inputFirstName"
-                                                placeholder="Type your first name" class="form-control">
+                                                placeholder="Type your first name" class="form-control" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -52,14 +53,14 @@
                                             <label for="inputPaternalSurname" class="col-form-label">Paternal
                                                 surname</label>
                                             <input type="text" name="inputPaternalSurname" id="inputPaternalSurname"
-                                                placeholder="Type your paternal surname" class="form-control">
+                                                placeholder="Type your paternal surname" class="form-control" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="inputMaternalSurname" class="col-form-label">Maternal
                                             surname</label>
                                         <input type="text" name="inputMaternalSurname" id="inputMaternalSurname"
-                                            class="form-control" placeholder="Type your maternal surname">
+                                            class="form-control" placeholder="Type your maternal surname" required>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -72,68 +73,13 @@
                                                 </div>
 
                                                 <input type="text" name="inputUsername" id="inputUsername"
-                                                    class="form-control" placeholder="Enter an username">
+                                                    class="form-control" placeholder="Enter an username" required>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-8">
-                                        <div class="form-group ">
-                                            <label for="inputEmail" class="col-form-label">Email</label>
-                                            <div class="input-group mb-3">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text"><em
-                                                            class="fas fa-envelope"></em></span>
-                                                </div>
-                                                <input type="text" name="inputEmail" id="inputEmail"
-                                                    class="form-control" placeholder="Type your email">
-                                            </div>
-                                        </div>
-                                    </div>
+                                    
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <div class="form-group ">
-                                            <label for="selectPosition" class="col-form-label">Position</label>
-                                            <select name="selectPosition" id="selectPosition" class="form-control">
-                                                <option value="">-- Select option --</option>
-                                                <option value="">Super</option>
-                                                <option value="">Administrator</option>
-                                                <option value="">Teacher</option>
-                                                <option value="">Technical</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <div class="form-group ">
-                                            <label for="selectLevelSchooling" class="col-form-label">
-                                                Level of schooling</label>
-                                            <select name="selectLevelSchooling" id="selectLevelSchooling"
-                                                class="form-control">
-                                                <option value="">-- Select option --</option>
-                                                <option value="">Maestro</option>
-                                                <option value="">Ingeniero</option>
-                                                <option value="">Tecnico superior universitario</option>
-                                                <option value="">Máster en gestión de las tecnologías de la información
-                                                </option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label>Cellphone number:</label>
-                                            <div class="input-group">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text"><i class="fas fa-phone"></i></span>
-                                                </div>
-                                                <input type="number" class="form-control" name="cellphone"
-                                                    id="cellphone">
-                                            </div>
-                                            <!-- /.input group -->
-                                        </div>
-                                    </div>
-                                </div>
+                                
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group ">
@@ -144,13 +90,13 @@
                                     </div>
                                     <div class="col-md-6">
                                         <label for="inputRPassword" class="col-form-label">Repet Password:</label>
-                                        <input type="text" name="inputRPassword" id="inputRPassword"
+                                        <input type="password" name="inputRPassword" id="inputRPassword"
                                             class="form-control" placeholder="Plase repear your password">
                                     </div>
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-info">Submit</button>
+                                <button type="button" class="btn btn-info" id="save">Submit</button>
                             </div>
                         </form>
                     </div>
@@ -162,3 +108,9 @@
     <!-- /.content -->
 </div>
 {% endblock%}
+
+{% block script %}
+
+<script src='{% static "js/user/users.js" %}'></script>
+
+{% endblock %}

@@ -1,6 +1,6 @@
 {% extends "masterPage.html" %}
 {% load static %}
-{% block title %} AccesKey | Users {% endblock %}
+{% block title %} AccesKey | Laboratories {% endblock %}
 {% block head %}
 <link rel="stylesheet" href='{% static "plugins/datatables-bs4/css/dataTables.bootstrap4.min.css" %}'>
 <link rel="stylesheet" href='{% static "plugins/datatables-responsive/css/responsive.bootstrap4.min.css" %}'>
@@ -13,12 +13,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">See Users</h1>
+                    <h1 class="m-0">See Laboratories</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href='{% url "Home" %}'>Home</a></li>
-                        <li class="breadcrumb-item">See Users</li>
+                        <li class="breadcrumb-item"><a href='{% url  "Home" %}'>Home</a></li>
+                        <li class="breadcrumb-item">See Laboratories</li>
 
                     </ol>
                 </div><!-- /.col -->
@@ -28,7 +28,8 @@
     <sectio class="content">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">General content of the laboratories</h3>
+                <h3 class="card-title">
+                    General content of the laboratories</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -36,18 +37,15 @@
                     <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Last Name</th>
-                            <th>Username</th>
+                            <th>Location</th>
                             <th>Options</th>
                         </tr>
                     </thead>
-                    <tbody id="tbodyData">                        
-                    </tbody>
+                    <tbody id="tbodyData"></tbody>
                     <tfoot>
                         <tr>
                             <th>Name</th>
-                            <th>Last Name</th>
-                            <th>Username</th>
+                            <th>Location</th>
                             <th>Options</th>
                         </tr>
                     </tfoot>
@@ -74,8 +72,7 @@
 <script src='{% static "plugins/datatables-buttons/js/buttons.html5.min.js" %}'></script>
 <script src='{% static "plugins/datatables-buttons/js/buttons.print.min.js" %}'></script>
 <script src='{% static "plugins/datatables-buttons/js/buttons.colVis.min.js" %}'></script>
-<script src='{% static "js/user/users.js" %}'></script>
-
+<script src='{% static "js/lab/lab.js" %}'></script>
 
 <script>
     $(function () {
@@ -94,4 +91,4 @@
         loadIndex();
     });
 </script>
-{% endblock %}
+{% endblock%}

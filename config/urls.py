@@ -21,10 +21,17 @@ from app.authentication import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     #PATH OF AUTHENTICATION
-    path('',include('app.authentication.urls')),
+    path('authentication/',include('app.authentication.urls')),
+    #PATH OF DIVACE
+    path('device/',include('app.device.urls')),
+    #PATH OF LABORATORIES
+    path('laboratories/',include('app.laboratories.urls')),
     #PATH OF LOGISTIC
-    path('home/',include('app.logistic.urls')),
+    path('',include('app.logistic.urls')),
+    #PATH OF SCHEDULE
+    path('shedule/',include('app.schedule.urls')),
     #PATH OF USERS
     path('users/',include('app.users.urls')),
+    #RENDERIZADO DE PWA
     re_path('',include('pwa.urls'))
 ]

@@ -15,6 +15,8 @@
   <link rel="stylesheet" href='{% static "plugins/fontawesome-free/css/all.min.css" %}'>
   <!-- Theme style -->
   <link rel="stylesheet" href='{% static "dist/css/adminlte.css" %}'>
+   <!-- Toastr -->
+   <link rel="stylesheet" href='{% static "plugins/toastr/toastr.min.css" %}'>
 
   {% progressive_web_app_meta %}
   {% block head%} {% endblock%}
@@ -67,28 +69,15 @@
         <!-- Notifications Dropdown Menu -->
         <li class="nav-item dropdown">
           <a class="nav-link" data-toggle="dropdown" href="#">
-            <i class="far fa-bell"></i>
-            <span class="badge badge-warning navbar-badge">15</span>
+            <i class="fas fa-bars"></i>
           </a>
           <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-            <span class="dropdown-item dropdown-header">15 Notifications</span>
+            <span class="dropdown-item dropdown-header">Accition</span>
             <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">
-              <i class="fas fa-envelope mr-2"></i> 4 new messages
-              <span class="float-right text-muted text-sm">3 mins</span>
+            <div class="dropdown-divider"></div>
+            <a href="#" onclick="logOut()" class="dropdown-item">
+              <i class="fas fa-arrow-right mr-2"></i> LogOut
             </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">
-              <i class="fas fa-users mr-2"></i> 8 friend requests
-              <span class="float-right text-muted text-sm">12 hours</span>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">
-              <i class="fas fa-file mr-2"></i> 3 new reports
-              <span class="float-right text-muted text-sm">2 days</span>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
           </div>
         </li>
       </ul>
@@ -112,7 +101,7 @@
             <img src='{% static "/img/profile-male.jpeg" %}' class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
-            <a href='{% url  "Home" %}' class="d-block">Missael Ching</a>
+            <a href='{% url  "Home" %}' class="d-block" id="LabelUsername"></a>
           </div>
         </div>
 
@@ -135,14 +124,28 @@
                with font-awesome or any other icon font library -->
             <li class="nav-header">MANAGEMENT</li>
             <li class="nav-item">
-              <a href="/Templates/lab/index.html" class="nav-link">
+              <a href="#" class="nav-link">
                 <em class="nav-icon fas fa-flask"></em>
                 <p>
                   Laboratories
+                  <em class="right fas fa-angle-left"></em>
                 </p>
               </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href='{% url "Lab-Index" %}' class="nav-link">
+                    <em class="far fa-circle nav-icon"></em>
+                    <p>See Laboratories</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href='{% url "Add-Lab" %}' class="nav-link">
+                    <em class="far fa-circle nav-icon"></em>
+                    <p>Add Lab</p>
+                  </a>
+                </li>
+              </ul>
             </li>
-
             <li class="nav-item">
               <a href="#" class="nav-link">
                 <em class="nav-icon fas fa-users"></em>
@@ -177,46 +180,31 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="/Templates/schedule/index.html" class="nav-link">
+                  <a href='{% url "Schedule-Index" %}' class="nav-link">
                     <em class="far fa-circle nav-icon"></em>
                     <p>See schedule</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="/Templates/schedule/add.html" class="nav-link">
+                  <a href='{% url "Add-Shedule" %}' class="nav-link">
                     <em class="far fa-circle nav-icon"></em>
                     <p>Add schedule</p>
                   </a>
                 </li>
               </ul>
             </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <em class="nav-icon fas fa-dice"></em>
+            <!-- <li class="nav-item">
+              <a href='{% url "All-Device" %}' class="nav-link">
+                <em class="nav-icon far fa-calendar-alt"></em>
                 <p>
-                  Divece
-                  <em class="right fas fa-angle-left"></em>
+                  Device
                 </p>
               </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="/Templates/divece/index.html" class="nav-link">
-                    <em class="far fa-circle nav-icon"></em>
-                    <p>See diveces</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="/Templates/divece/add.html" class="nav-link">
-                    <em class="far fa-circle nav-icon"></em>
-                    <p>Add divece</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
+            </li> -->
 
             <li class="nav-header">LOGISTIC</li>
             <li class="nav-item">
-              <a href="/Templates/schedule/myschedule.html" class="nav-link">
+              <a href='{% url "My-Shedule" %}' class="nav-link">
                 <em class="nav-icon far fa-calendar-alt"></em>
                 <p>
                   My schedule
@@ -224,21 +212,21 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="/Templates/logistic/access.html" class="nav-link">
+              <a href="https://pwa--hilarious-dasik-5c9a6c.netlify.app/" class="nav-link">
                 <em class="nav-icon fas fa-money-check"></em>
                 <p>
                   Access
                 </p>
               </a>
             </li>
-            <li class="nav-item">
-              <a href="/Templates/logistic/logs.html" class="nav-link">
+            <!-- <li class="nav-item">
+              <a href='{% url "Logs" %}' class="nav-link">
                 <em class="nav-icon fas fa-chart-line"></em>
                 <p>
                   Logs
                 </p>
               </a>
-            </li>
+            </li> -->
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
@@ -262,8 +250,6 @@
     </aside>
   </div>
   <!-- /.content-wrapper -->
-
-
   <!-- jQuery -->
   <script src='{% static "plugins/jquery/jquery.min.js" %}'></script>
   <!-- Bootstrap 4 -->
@@ -272,7 +258,16 @@
   <script src='{% static "dist/js/adminlte.js" %}'></script>
   <!-- AdminLTE for demo purposes -->
   <script src='{% static "dist/js/demo.js" %}'></script>
-  {% block script %} {% endblock%}
+  <!-- Toastr -->
+<script src='{% static "plugins/toastr/toastr.min.js" %}'></script>
+<script>
+  const logOut = () =>{
+    sessionStorage.clear()
+    window.location.href = `${window.location.protocol}//${window.location.host}/authentication/login`
+  }
+  $("#LabelUsername").html(sessionStorage.SessionUsuario)
+</script>
+{% block script %} {% endblock %}
 </body>
 
 </html>

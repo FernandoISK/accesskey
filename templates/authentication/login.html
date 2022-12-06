@@ -15,19 +15,19 @@
         <div class="box">
             <div class="form">
                 <h2>Login</h2>
-                <form action="">
+                <form id="FormLogin">
                     <div class="inputBx">
-                        <input type="text" placeholder="Username">
+                        <input type="text" placeholder="Username" id="Username">
                     </div>
                     <div class="inputBx">
-                        <input type="password" placeholder="Password">
+                        <input type="password" placeholder="Password" id="Password">
                     </div>
                     <label class="remember">
                         <input type="checkbox">
                         Remember me
                     </label>
                     <div class="inputBx">
-                        <input type="submit" value="Login">
+                        <input type="button" value="Login" id="save">
                     </div>
                 </form>
                 <p>Forget <a href="#">Password</a></p>
@@ -36,5 +36,9 @@
         </div>
     </section>
 </body>
+ <!-- jQuery -->
+ <script src='{% static "plugins/jquery/jquery.min.js" %}'></script>
+<!-- Login -->
+<script src='{% static "js/login/authen.js" %}'></script>
 
 </html>

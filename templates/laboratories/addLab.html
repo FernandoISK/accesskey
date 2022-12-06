@@ -1,0 +1,84 @@
+{% extends "masterPage.html" %}
+{% load static %}
+{% block title %} AccesKey | Laboratories {% endblock %}
+{% block content %}
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">   
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">New Lab</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href='{% url  "Home" %}'>Home</a></li>
+                        <li class="breadcrumb-item"><a href='{% url "Lab-Index" %}'>See Laboratories</a></li>
+                        <li class="breadcrumb-item">New Lab</li>
+
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-secondary">
+                        <div class="card-header">
+                            <h3 class="card-title">General information</h3>
+                        </div>
+                        <form>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group ">
+                                            <label for="inputLaboratoryNumber" class="col-form-label">Laboratory Number</label>
+                                            <input type="number" name="inputLaboratoryNumber" id="inputLaboratoryNumber"
+                                                placeholder="type a number for the lab. ej: 1,  2" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="inputLabLocation" class="col-form-label">Edificio </label>
+                                        <input type="text" name="inputLabLocation" id="inputLabEdificio"
+                                            class="form-control" placeholder="" >
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="inputLabLocation" class="col-form-label">Clave</label>
+                                        <input type="text" name="inputLabLocation" id="inputLabClave"
+                                            class="form-control" placeholder="" >
+                                    </div>
+                                </div>
+                                <h6>Please Select a location</h6>
+                                <div class="card bg-gradient-primary">
+                                    <div class="card-header border-0">
+                                        <h3 class="card-title">
+                                            <i class="fas fa-map-marker-alt mr-1"></i>
+                                            Universidad Tecnologica Metropolitana
+                                        </h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div id="world-map" style="height: 100%; width: 100%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <button type="button" id="save" class="btn btn-info">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+{% endblock %}
+
+{% block script %}
+<script src='{% static "js/lab/lab.js" %}'></script>
+{% endblock %}

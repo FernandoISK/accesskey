@@ -90,7 +90,7 @@ section {
     color: #fff;
 }
 
-.box .form .inputBx input[type='submit'] {
+.box .form .inputBx input[type='button'] {
     background: #fff;
     color: #111;
     max-width: 100px;
@@ -119,4 +119,13 @@ section {
 
 .box .form a {
     color: #fff;
+}
+
+.error{
+    position: relative;
+    bottom: 10px;
+    height: 50px;
+    padding: 5px;
+    background-color: firebrick;
+    border-radius: 5px;
 }

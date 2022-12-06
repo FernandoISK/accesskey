@@ -36,9 +36,12 @@ INSTALLED_APPS = [
     'pwa',
     
     # Local
-    'app.users',
+    'app.authentication',
+    'app.device',
+    'app.laboratories',
     'app.logistic',
-    'app.authentication'
+    'app.schedule',
+    'app.users',
 ]
 
 MIDDLEWARE = [
